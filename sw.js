@@ -1,4 +1,4 @@
-var cacheName = 'harsh-pwa';
+var cacheName = 'olx-pwa';
 var filesToCache = [
   '/',
   '/index.html',
