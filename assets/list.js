@@ -13,7 +13,7 @@ $(function() {
     var url = new URL(url_string);
     var c = url.searchParams.get("id");
 
-    window.history.replaceState(null, null, c);
+    window.history.replaceState(null, null, '/list'+c);
     /**
      * ----------------------------------------------
      */
