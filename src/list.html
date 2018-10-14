@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Assignment</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/list.js"></script>
+  <link rel="stylesheet" href="assets/main.css">
+  <link rel="manifest" href="manifest.json">
+  <script type="text/javascript">
+    /*
+    * Registering service worker in sw.js file
+    */
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(function() {
+              console.log('Service Worker Registered');
+        });
+    }
+  </script>
+  <script type="text/javascript">
+    /**
+    * Here I am storing all caches information related to listing and synopsis.
+    */
+    self.addEventListener('fetch', function(event) {
+    console.log('Service Worker Fetch...');
+
+    event.respondWith(
+      caches.match(event.request)
+        .then(function(response) {
+          if(event.request.url.indexOf('facebook') > -1){
+            return fetch(event.request);
+          }
+          if(response){
+            console.log('Serve from cache', response);
+            return response;
+          }
+          return fetch(event.request)
+              .then(response =>
+                caches.open(CURRENT_CACHES.prefetch)
+                  .then((cache) => {
+                    // cache response after making a request
+                    cache.put(event.request, response.clone());
+                    // return original response
+                    return response;
+                  })
+              )}
+        ))});
+        /*--------------------------------------------------------------*/
+  </script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <a href="index.html">OLX</a>
+    </div>
+  </div>
+</nav><br/><br/>
+  
+<div class="jumbotron container-fluid bg-3 text-center">    
+    <div class="plat-data" style="display:none;">
+        <div id="plat-listing-main">
+            <div class="card-detail">
+            </div>
+        </div> 
+    </div>
+</div><br/><br/>
+
+</body>
+</html>

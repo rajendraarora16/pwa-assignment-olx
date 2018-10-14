@@ -1,0 +1,64 @@
+
+.section {
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+}
+
+.col {
+  display: block;
+  float: left;
+}
+
+.span_1_of_3 {
+  width: 32.2%;
+  height: 200px;
+  cursor: pointer;
+}
+
+.padding-div {
+  padding: 1% 0 1% 1.6%; /*padding to make text look right*/
+  background-color: #C0C0C0;
+  /*height and width so the divs are separated*/
+  height: 90%; 
+  width: 95%;
+}
+
+@media only screen and (max-width: 992px) {
+  .span_1_of_3 {
+    width: 49.2%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .span_1_of_3 {
+    width: 100%;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+#plat-listing-main .card-detail .item {
+  height: 270px;
+  background: #ccc;
+  border: 1px solid #c0c0c0;
+}
+
+.city_label{
+  text-align: center;
+}
+
+.title{
+  text-align: center;
+}
+
+.description {
+  text-align: center;
+}
+
+.list-cursor {
+  cursor: default;
+  background-color: #C0C0C0;
+}
