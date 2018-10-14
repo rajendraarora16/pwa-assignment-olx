@@ -27,7 +27,7 @@ $(function() {
 
             $.ajax({
                 async: false,
-                url: 'http://api.jsonbin.io/b/5bbe26bd295e4356a50f966d',
+                url: 'https://api.jsonbin.io/b/5bbe26bd295e4356a50f966d',
                 type: 'GET',
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
