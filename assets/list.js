@@ -27,7 +27,7 @@ $(function() {
     * Merge page 1 and page 2 array's key
     */
     var mergedData = data[0]['ads'].concat(data[1]['ads']);
-    console.log('merged: ', mergedData)
+    // console.log('merged: ', mergedData)
 
     for(var i=0; i<mergedData.length; i++) {
 
@@ -35,11 +35,11 @@ $(function() {
             $(".plat-data").show();
 
             $('.card-detail').html(""+
-            "<div class='col span_1_of_3 list-cursor'>"+
+            "<div class='col span_1_of_3 list-wrapper'>"+
                 "<div class='padding-div'>"+
-                    "<p class='title'>"+mergedData[i]['title']+"</p>"+
-                    "<p class='city_label'>"+mergedData[i]['city_label']+"</p>"+
-                    "<p class='description'>"+mergedData[i]['description']+"</p>"+
+                    "<p class='title'><strong>Title: </strong>"+mergedData[i]['title']+"</p>"+
+                    "<p class='city_label'><strong>City: </strong>"+mergedData[i]['city_label']+"</p>"+
+                    "<p class='description'><strong>Description: </strong>"+mergedData[i]['description']+"</p>"+
                 "</div>"+
             "</div>");
         }
