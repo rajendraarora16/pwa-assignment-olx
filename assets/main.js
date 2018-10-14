@@ -80,5 +80,6 @@ $(function() {
         }
 
         $("#card-temp").html(htmlCards);
+        window.history.replaceState(null, null, '/');
 })
 
